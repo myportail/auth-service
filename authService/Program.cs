@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using authService.Contexts;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -17,21 +18,6 @@ namespace authService
         public static void Main(string[] args)
         {
             var host = BuildWebHost(args);
-
-            using (var serviceScope = host.Services.CreateScope())
-            {
-                var services = serviceScope.ServiceProvider;
-
-                try
-                {
-                    DatabaseSetup.InitialiseUsers(services);
-                }
-                catch (Exception ex)
-                {
-                    var logger = services.GetRequiredService<ILogger<Program>>();
-                    logger.LogError(ex, "An error occurred.");
-                }
-            }
             
             host.Run();
         }

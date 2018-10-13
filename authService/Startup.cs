@@ -12,7 +12,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using MySql.Data.EntityFrameworkCore.Extensions;
+//using MySql.Data.EntityFrameworkCore.Extensions;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace authService
 {
@@ -31,7 +32,10 @@ namespace authService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddDbContext<Contexts.UsersDbContext>();
+            
+            var connection = @"server=localhost;database=auth;user=sa;password=igQFUwjZZyxgken7gcKg*gTu";
+            
+            services.AddDbContext<Contexts.UsersDbContext>(options => options.UseSqlServer(connection));
             services.AddScoped<Services.IUsersService, Services.UsersService>();
             services.AddScoped<Services.IAuthService, Services.AuthService>();
             services.AddScoped<Services.IPasswordHasher, Services.PasswordHasher>();
@@ -51,17 +55,35 @@ namespace authService
                             Encoding.UTF8.GetBytes(AppSettings.TokenGeneration.SecurityKey))
                     };
                 });
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            using (var serviceScope = app.ApplicationServices.CreateScope())
+            {
+                var context = serviceScope.ServiceProvider.GetService<Contexts.UsersDbContext>();
+                context.Database.Migrate();
+            }
+
+            app.UseSwagger();
+            
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
 
             app.UseAuthentication();
+            
+//            app.UseSwaggerUI(c =>
+//            {
+//                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+//            });
             
             app.UseMvc();
         }

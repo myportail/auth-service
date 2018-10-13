@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
-using MySql.Data.EntityFrameworkCore;
+//using MySql.Data.EntityFrameworkCore;
 
 namespace authService.Contexts
 {
@@ -8,10 +8,15 @@ namespace authService.Contexts
     {
         public DbSet<Model.Db.User> Users { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public UsersDbContext(DbContextOptions options) : base(options)
         {
-            optionsBuilder.UseMySQL("server=localhost;database=auth;user=authUser;password=igQFUwjZZyxgken7gcKg*gTu");
+            
         }
+
+//        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+//        {
+////            optionsBuilder.UseMySQL("server=localhost;database=auth;user=authUser;password=igQFUwjZZyxgken7gcKg*gTu");
+//        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
