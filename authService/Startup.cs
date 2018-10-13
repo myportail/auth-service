@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using authService.Model.Api;
+using authService.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -62,12 +64,23 @@ namespace authService
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public async void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             using (var serviceScope = app.ApplicationServices.CreateScope())
             {
                 var context = serviceScope.ServiceProvider.GetService<Contexts.UsersDbContext>();
                 context.Database.Migrate();
+
+                var userService = serviceScope.ServiceProvider.GetService<Services.IUsersService>();
+                var adminUser = await userService.GetUserByName("Admin");
+                if (adminUser == null)
+                {
+                    await userService.AddUser(new User()
+                    {
+                        Name = "Admin",
+                        Password = "Admin@123"
+                    });
+                }
             }
 
             app.UseSwagger();

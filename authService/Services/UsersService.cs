@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using authService.Model.Api;
+using Microsoft.EntityFrameworkCore;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace authService.Services
 {
@@ -29,14 +32,36 @@ namespace authService.Services
                     Id = Guid.NewGuid().ToString()
                 };
 
-                using (var ctx = UsersContext)
+//                using (var ctx = UsersContext)
+                var ctx = UsersContext;
                 {
-                    ctx.Database.EnsureCreated();
+//                    ctx.Database.EnsureCreated();
                     ctx.Users.Add(dbUser);
                     await ctx.SaveChangesAsync();
                 }
                 
                 return dbUser;
+            }
+            catch (Exception ex)
+            {
+                System.Console.Error.WriteLine(ex.ToString());
+                throw;
+            }
+        }
+
+        public async Task<Model.Db.User> GetUserByName(string name)
+        {
+            try
+            {
+//                using (var ctx = UsersContext)
+                var ctx = UsersContext;
+                {
+                    var result = ctx.Users.Where(x => x.Name.Equals(name));
+                    if (result.Any())
+                        return result.First();
+                    
+                    return null;
+                }
             }
             catch (Exception ex)
             {
@@ -51,7 +76,8 @@ namespace authService.Services
             {
                 List<Model.Api.User> users = new List<User>();
                 
-                using (var ctx = UsersContext)
+//                using (var ctx = UsersContext)
+                var ctx = UsersContext;
                 {
                     foreach (var dbUser in ctx.Users)
                     {
