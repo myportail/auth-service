@@ -18,6 +18,7 @@ namespace authService.Controllers
             PasswordHasher = passwordHasher;
         }
 
+        [HttpPost]
         public IActionResult Login([FromBody] Model.Api.LoginCredentials credentials)
         {
             try

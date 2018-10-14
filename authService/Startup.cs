@@ -82,8 +82,6 @@ namespace authService
                     });
                 }
             }
-
-            app.UseSwagger();
             
             
             if (env.IsDevelopment())
@@ -91,13 +89,16 @@ namespace authService
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseSwagger();
             app.UseAuthentication();
             
-//            app.UseSwaggerUI(c =>
-//            {
-//                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-//            });
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
             
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
             app.UseMvc();
         }
     }
