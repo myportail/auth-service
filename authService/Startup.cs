@@ -36,7 +36,7 @@ namespace authService
         {
             services.AddMvc();
             
-            var connection = @"server=localhost;database=auth;user=sa;password=igQFUwjZZyxgken7gcKg*gTu";
+            var connection = @"server=authdb;database=auth;user=sa;password=igQFUwjZZyxgken7gcKg*gTu";
             
             services.AddDbContext<Contexts.UsersDbContext>(options => options.UseSqlServer(connection));
             services.AddScoped<Services.IUsersService, Services.UsersService>();

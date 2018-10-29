@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+  auth-service:
+    container_name: auth-service
+    build: ./
+    stdin_open: true
+    tty: true
+    entrypoint: ['/bin/sh']
+    volumes:
+      - ./:/authService
+  
+
+    
