@@ -39,7 +39,7 @@
     <None Include="hosting.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="hosting.development.json">
+    <None Include="hosting.Development.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

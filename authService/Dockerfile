@@ -5,9 +5,11 @@ WORKDIR /src/authService
 RUN dotnet restore -nowarn:msb3202,nu1503
 RUN dotnet build -c Debug -o /app
 COPY appsettings.Development.json /app
+COPY appsettings.Docker.json /app
 COPY appsettings.json /app
-COPY ./hosting.development.json /app
-COPY ./hosting.json /app
+COPY hosting.Development.json /app
+COPY hosting.Docker.json /app
+COPY hosting.json /app
 WORKDIR /app
 ENTRYPOINT ["dotnet", "authService.dll"]
 
