@@ -10,8 +10,8 @@ COPY appsettings.json /app
 COPY hosting.Development.json /app
 COPY hosting.Docker.json /app
 COPY hosting.json /app
-WORKDIR /app
-ENTRYPOINT ["dotnet", "authService.dll"]
+#WORKDIR /app
+#ENTRYPOINT ["dotnet", "authService.dll"]
 
 # FROM cobreti/linux_netcore_env:1.0 AS final
 
@@ -25,8 +25,14 @@ ENTRYPOINT ["dotnet", "authService.dll"]
 # RUN dotnet restore -nowarn:msb3202,nu1503
 # RUN dotnet build -c Release -o /app
 
-# FROM build AS publish
-# RUN dotnet publish -c Release -o /app
+FROM build AS publish
+RUN dotnet publish -c Release -o /app
+
+FROM microsoft/dotnet:2.1-runtime as final
+COPY --from=publish /app /authService
+#WORKDIR /authService
+#ENTRYPOINT ["dotnet", "authService.dll"]
+
 
 # FROM cobreti/linux_netcore_env:1.0 AS final
 # COPY --from=publish /app /authService
