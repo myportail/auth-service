@@ -2,6 +2,9 @@ FROM microsoft/dotnet:2.1-sdk as build
 WORKDIR /src
 COPY ./ ./authService
 WORKDIR /src/authService
+RUN apt-get update
+RUN apt-get install unzip
+RUN curl -sSL https://aka.ms/getvsdbgsh | bash /dev/stdin -v vs2017u5 -l /vsdbg
 RUN dotnet restore -nowarn:msb3202,nu1503
 RUN dotnet build -c Debug -o /app
 COPY appsettings.Development.json /app

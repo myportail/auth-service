@@ -30,7 +30,7 @@ namespace authService.Controllers
                 var hashedPwd = PasswordHasher.HashPassword(credentials.Password);
                 var token = AuthService.CreateToken(credentials);
                 
-                await MongoDbService.Init();
+                // await MongoDbService.Init();
 
                 return Ok(new
                 {

@@ -73,6 +73,8 @@ namespace authService
                 c.OperationFilter<SecurityRequirementsOperationFilter>();
                 
             });
+            
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -80,6 +82,9 @@ namespace authService
         {
             using (var serviceScope = app.ApplicationServices.CreateScope())
             {
+                var mongoDbService = serviceScope.ServiceProvider.GetService<Services.IMongoDbService>();
+                mongoDbService.Init();
+
                 var context = serviceScope.ServiceProvider.GetService<Contexts.UsersDbContext>();
                 context.Database.Migrate();
 

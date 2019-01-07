@@ -26,7 +26,7 @@ namespace authService.Services
             
                 var settings = new MongoClientSettings
                 {
-                    Server = new MongoServerAddress("127.0.0.1", 27017),
+                    Server = new MongoServerAddress(AppSettings.Connections.MongoDb.Server, 27017),
                     Credential = credential
                 };
 
@@ -35,9 +35,9 @@ namespace authService.Services
                 var db = mongoClient.GetDatabase(AppSettings.Connections.MongoDb.Database);
                 var collection = db.GetCollection<User>("authUsers");
 
-                var doc = new BsonDocument();
-                doc.Add("Name", "Admin");
-                doc.Add("Password", "Admin@123");
+                // var doc = new BsonDocument();
+                // doc.Add("Name", "Admin");
+                // doc.Add("Password", "Admin@123");
                 
                 await collection.InsertOneAsync(new User()
                 {

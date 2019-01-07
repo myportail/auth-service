@@ -3,13 +3,13 @@ version: '2'
 services:
   auth-service:
     build:
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
       context: .
     image: auth-service
-    working_dir: /authService
+    working_dir: /app
     entrypoint: ["dotnet", "authService.dll"]
     environment:
-      - ASPNETCORE_ENVIRONMENT=Docker
+      - ASPNETCORE_ENVIRONMENT=DockerDev
     networks:
       - auth-db_authService
     ports:
