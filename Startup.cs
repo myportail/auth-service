@@ -83,10 +83,10 @@ namespace authService
             using (var serviceScope = app.ApplicationServices.CreateScope())
             {
                 var mongoDbService = serviceScope.ServiceProvider.GetService<Services.IMongoDbService>();
-                mongoDbService.Init();
+                await mongoDbService.Init();
 
-                var context = serviceScope.ServiceProvider.GetService<Contexts.UsersDbContext>();
-                context.Database.Migrate();
+//                var context = serviceScope.ServiceProvider.GetService<Contexts.UsersDbContext>();
+//                context.Database.Migrate();
 
                 var userService = serviceScope.ServiceProvider.GetService<Services.IUsersService>();
                 var adminUser = await userService.GetUserByName("Admin");

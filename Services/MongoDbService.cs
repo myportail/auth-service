@@ -10,13 +10,12 @@ namespace authService.Services
     {
         private Settings.Application AppSettings { get; }
         
+        public IMongoDatabase Database { get; }
+        
         public MongoDbService(Settings.Application appSettings)
         {
             AppSettings = appSettings;
-        }
 
-        public async Task Init()
-        {
             try
             {
                 var credential = MongoCredential.CreateCredential(
@@ -32,13 +31,26 @@ namespace authService.Services
 
                 var mongoClient = new MongoClient(settings);
 
-                var db = mongoClient.GetDatabase(AppSettings.Connections.MongoDb.Database);
+                Database = mongoClient.GetDatabase(AppSettings.Connections.MongoDb.Database);
 
-                var collections = db.ListCollections().ToList();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
+        public async Task Init()
+        {
+            try
+            {
+
+                var collections = Database.ListCollections().ToList();
                 if (collections.Count == 0)
                 {
-                    var usersCollection = await CreateAuthUsersCollection(db);
-                    await CreateDefautUser(usersCollection);
+                    var usersCollection = await CreateAuthUsersCollection();
+//                    await CreateDefautUser(usersCollection);
                 }
                 
 //                var users = db.GetCollection<User>("authUsers");
@@ -58,10 +70,10 @@ namespace authService.Services
             }
         }
 
-        async Task<IMongoCollection<User>> CreateAuthUsersCollection(IMongoDatabase db)
+        async Task<IMongoCollection<User>> CreateAuthUsersCollection()
         {
-            db.CreateCollection("authUsers");
-            var collection = db.GetCollection<User>("authUsers");
+            Database.CreateCollection("authUsers");
+            var collection = Database.GetCollection<User>("authUsers");
             var options = new CreateIndexOptions() { Unique = true };
             var field = new StringFieldDefinition<User>("Name");
             var indexDefinition = new IndexKeysDefinitionBuilder<User>().Ascending(field);
