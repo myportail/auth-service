@@ -4,39 +4,53 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
+using System.Threading.Tasks;
 using authService.Exceptions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using MongoDB.Driver;
 
 namespace authService.Services
 {
     public class AuthService : IAuthService
     {
-        private Contexts.UsersDbContext UsersContext { get; }
+//        private Contexts.UsersDbContext UsersContext { get; }
         private Settings.Application AppSettings { get; }
         private Services.IPasswordHasher PasswordHasher { get; }
+        
+        private IMongoDbService MongoDbService { get; }
 
         public AuthService(
-            Contexts.UsersDbContext usersContext,
+//            Contexts.UsersDbContext usersContext,
+            IMongoDbService mongoDbService,
             Settings.Application appSettings,
             Services.IPasswordHasher passwordHasher )
         {
-            UsersContext = usersContext;
+//            UsersContext = usersContext;
             AppSettings = appSettings;
+            MongoDbService = mongoDbService;
             PasswordHasher = passwordHasher;
         }
 
-        public JwtSecurityToken CreateToken(Model.Api.LoginCredentials credentials)
+        public async Task<JwtSecurityToken> CreateToken(Model.Api.LoginCredentials credentials)
         {
             try
             {
-                var users = UsersContext.Users.Where(x => x.Name.Equals(credentials.Username));
-
-                if (!users.Any())
-                    throw new Exception("unkown user");
+                var usersQuery =
+                    await MongoDbService.UsersCollection.FindAsync(x => x.Name.Equals(credentials.Username));
+                
+                if (!usersQuery.Any())
+                    throw new Exception("invalid credentials");
+                
+                var user = usersQuery.First();
+                
+//                var users = UsersContext.Users.Where(x => x.Name.Equals(credentials.Username));
+//
+//                if (!users.Any())
+//                    throw new Exception("unkown user");
 
                 var hashedPwd = PasswordHasher.HashPassword(credentials.Password);
-                var user = users.First();
+//                var user = users.First();
                 if (!user.Password.Equals(hashedPwd))
                     throw new Exception("invalid credentials");
                 

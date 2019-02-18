@@ -37,9 +37,9 @@ namespace authService
             services.AddMvc();
             
 //            var connection = @"server=localhost;database=auth;user=sa;password=igQFUwjZZyxgken7gcKg*gTu";
-            var connection = AppSettings.Connections.AuthConnString;
+//            var connection = AppSettings.Connections.AuthConnString;
             
-            services.AddDbContext<Contexts.UsersDbContext>(options => options.UseSqlServer(connection));
+//            services.AddDbContext<Contexts.UsersDbContext>(options => options.UseSqlServer(connection));
             services.AddScoped<Services.IUsersService, Services.UsersService>();
             services.AddScoped<Services.IAuthService, Services.AuthService>();
             services.AddScoped<Services.IPasswordHasher, Services.PasswordHasher>();
@@ -78,7 +78,29 @@ namespace authService
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public async void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        {
+            SetupDefaultUser(app).Wait();
+            
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+
+            app.UseSwagger();
+            app.UseAuthentication();
+            
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
+            
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
+            app.UseMvc();
+        }
+
+        async Task SetupDefaultUser(IApplicationBuilder app)
         {
             using (var serviceScope = app.ApplicationServices.CreateScope())
             {
@@ -98,25 +120,7 @@ namespace authService
                         Password = "Admin@123"
                     });
                 }
-            }
-            
-            
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-
-            app.UseSwagger();
-            app.UseAuthentication();
-            
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-            });
-            
-            app.UseDefaultFiles();
-            app.UseStaticFiles();
-            app.UseMvc();
+            }            
         }
     }
 }

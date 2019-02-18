@@ -7,6 +7,8 @@ namespace authService.Services
     {
         IMongoDatabase Database { get; }
         
+        IMongoCollection<Model.MongoDb.User> UsersCollection { get; }
+        
         Task Init();
     }
 }

@@ -1,11 +1,12 @@
 ﻿
 
 using System.IdentityModel.Tokens.Jwt;
+using System.Threading.Tasks;
 
 namespace authService.Services
 {
     public interface IAuthService
     {
-        JwtSecurityToken CreateToken(Model.Api.LoginCredentials credentials);
+        Task<JwtSecurityToken> CreateToken(Model.Api.LoginCredentials credentials);
     }
 }

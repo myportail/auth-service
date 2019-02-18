@@ -12,6 +12,8 @@ namespace authService.Services
         
         public IMongoDatabase Database { get; }
         
+        public IMongoCollection<Model.MongoDb.User> UsersCollection => Database.GetCollection<Model.MongoDb.User>("authUsers");
+        
         public MongoDbService(Settings.Application appSettings)
         {
             AppSettings = appSettings;

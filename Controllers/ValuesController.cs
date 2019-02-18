@@ -9,10 +9,10 @@ namespace authService.Controllers
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
-        Contexts.UsersDbContext _context { get; }
+//        Contexts.UsersDbContext _context { get; }
 
-        public ValuesController(Contexts.UsersDbContext context) {
-            _context = context;
+        public ValuesController() {
+//            _context = context;
         }
 
         // GET api/values
@@ -28,10 +28,10 @@ namespace authService.Controllers
         {
             try
             {
-                using (var ctx = _context)
-                {
-                    ctx.Database.EnsureCreated();
-                }
+//                using (var ctx = _context)
+//                {
+//                    ctx.Database.EnsureCreated();
+//                }
             }
             catch(Exception ex) {
                 System.Console.Error.WriteLine(ex);
