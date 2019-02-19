@@ -38,22 +38,7 @@ namespace authService.Services
                 };
 
                 await UsersCollection.InsertOneAsync(mongoDbUser);
-                
-//                var dbUser = new Model.Db.User
-//                {
-//                    Name = user.Name,
-//                    Password = PasswordHasher.HashPassword(user.Password),
-//                    Id = Guid.NewGuid().ToString()
-//                };
-//
-////                using (var ctx = UsersContext)
-//                var ctx = UsersContext;
-//                {
-////                    ctx.Database.EnsureCreated();
-//                    ctx.Users.Add(dbUser);
-//                    await ctx.SaveChangesAsync();
-//                }
-                
+                                
                 return mongoDbUser;
             }
             catch (Exception ex)
@@ -67,23 +52,15 @@ namespace authService.Services
         {
             try
             {
-                var result = await UsersCollection.FindAsync(x => x.Name == name);
-                var users = result.ToList();
+                using (var result = await UsersCollection.FindAsync(x => x.Name == name))
+                {
+                    var users = result.ToList();
 
-                if (users.Count > 0)
-                    return users.First();
+                    if (users.Count > 0)
+                        return users.First();
 
-                return null;
-
-//                using (var ctx = UsersContext)
-//                var ctx = UsersContext;
-//                {
-//                    var result = ctx.Users.Where(x => x.Name.Equals(name));
-//                    if (result.Any())
-//                        return result.First();
-//                    
-//                    return null;
-//                }
+                    return null;
+                };
             }
             catch (Exception ex)
             {
@@ -96,34 +73,23 @@ namespace authService.Services
         {
             try
             {
-                var results = await UsersCollection.FindAsync(Builders<Model.MongoDb.User>.Filter.Empty);
-                var dbUsers = results.ToList();
-                
-                List<Model.Api.User> users = new List<User>();
-                
-                dbUsers.ForEach(dbUser =>
+                using (var results = await UsersCollection.FindAsync(Builders<Model.MongoDb.User>.Filter.Empty))
                 {
-                    users.Add(new User()
-                    {
-                        Id = dbUser.Id,
-                        Name = dbUser.Name
-                    });
-                });
+                    var dbUsers = results.ToList();
                 
-//                using (var ctx = UsersContext)
-//                var ctx = UsersContext;
-//                {
-//                    foreach (var dbUser in ctx.Users)
-//                    {
-//                        users.Add(new User()
-//                        {
-//                            Id = dbUser.Id,
-//                            Name = dbUser.Name
-//                        });
-//                    }
-//                }
-
-                return users;
+                    var users = new List<User>();
+                
+                    dbUsers.ForEach(dbUser =>
+                    {
+                        users.Add(new User()
+                        {
+                            Id = dbUser.Id,
+                            Name = dbUser.Name
+                        });
+                    });
+                
+                    return users;
+                }
             }
             catch (Exception ex)
             {

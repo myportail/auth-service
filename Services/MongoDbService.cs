@@ -47,23 +47,11 @@ namespace authService.Services
         {
             try
             {
-
                 var collections = Database.ListCollections().ToList();
                 if (collections.Count == 0)
                 {
                     var usersCollection = await CreateAuthUsersCollection();
-//                    await CreateDefautUser(usersCollection);
                 }
-                
-//                var users = db.GetCollection<User>("authUsers");
-//
-//                var result = collection.Find(x => x.Name == "Admin").ToList();
-                
-                // var doc = new BsonDocument();
-                // doc.Add("Name", "Admin");
-                // doc.Add("Password", "Admin@123");
-                
-
             }
             catch (Exception e)
             {
