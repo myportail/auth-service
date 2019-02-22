@@ -21,19 +21,19 @@ namespace authService.Services
             try
             {
                 var credential = MongoCredential.CreateCredential(
-                    AppSettings.Connections.MongoDb.Database,
-                    AppSettings.Connections.MongoDb.Username,
-                    AppSettings.Connections.MongoDb.Password);
+                    AppSettings.Connections.Authdb.Database,
+                    AppSettings.Connections.Authdb.Username,
+                    AppSettings.Connections.Authdb.Password);
             
                 var settings = new MongoClientSettings
                 {
-                    Server = new MongoServerAddress(AppSettings.Connections.MongoDb.Server, 27017),
+                    Server = new MongoServerAddress(AppSettings.Connections.Authdb.Server, 27017),
                     Credential = credential
                 };
 
                 var mongoClient = new MongoClient(settings);
 
-                Database = mongoClient.GetDatabase(AppSettings.Connections.MongoDb.Database);
+                Database = mongoClient.GetDatabase(AppSettings.Connections.Authdb.Database);
 
             }
             catch (Exception e)

@@ -1,4 +1,4 @@
-FROM microsoft/dotnet:2.1-sdk as build
+FROM microsoft/dotnet:2.2-sdk as build
 WORKDIR /src
 COPY ./ ./authService
 WORKDIR /src/authService
@@ -28,7 +28,7 @@ COPY hosting.Docker.json /app
 FROM build AS publish
 RUN dotnet publish -c Release -o /app
 
-FROM microsoft/dotnet:2.1-runtime as final
+FROM microsoft/dotnet:2.2-runtime as final
 COPY --from=publish /app /authService
 #WORKDIR /authService
 #ENTRYPOINT ["dotnet", "authService.dll"]

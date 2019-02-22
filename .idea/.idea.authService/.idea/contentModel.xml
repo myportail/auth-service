@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$PROJECT_DIR$" t="IncludeRecursive">
+      <e p=".gitignore" t="Include" />
+      <e p="appsettings.Development.json" t="Include" />
+      <e p="appsettings.Docker.json" t="Include" />
+      <e p="appsettings.DockerDev.json" t="Include" />
+      <e p="appsettings.json" t="Include" />
+      <e p="authService.csproj" t="IncludeRecursive" />
+      <e p="authService.sln" t="IncludeFlat" />
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="Contexts" t="Include" />
+      <e p="Controllers" t="Include">
+        <e p="LoginController.cs" t="Include" />
+        <e p="UsersController.cs" t="Include" />
+        <e p="ValuesController.cs" t="Include" />
+      </e>
+      <e p="docker-compose.dev.yml" t="Include" />
+      <e p="docker-compose.yml" t="Include" />
+      <e p="docker-run.sh" t="Include" />
+      <e p="Dockerfile" t="Include" />
+      <e p="Dockerfile.dev" t="Include" />
+      <e p="Exceptions" t="Include">
+        <e p="NoDbConnection.cs" t="Include" />
+      </e>
+      <e p="hosting.Development.json" t="Include" />
+      <e p="hosting.Docker.json" t="Include" />
+      <e p="hosting.DockerDev.json" t="Include" />
+      <e p="hosting.json" t="Include" />
+      <e p="Model" t="Include">
+        <e p="Api" t="Include">
+          <e p="LoginCredentials.cs" t="Include" />
+          <e p="User.cs" t="Include" />
+        </e>
+        <e p="Db" t="Include">
+          <e p="User.cs" t="Include" />
+          <e p="UserRoles.cs" t="Include" />
+        </e>
+        <e p="MongoDb" t="Include">
+          <e p="User.cs" t="Include" />
+        </e>
+        <e p="private" t="Include" />
+      </e>
+      <e p="obj" t="ExcludeRecursive">
+        <e p="Debug" t="Include">
+          <e p="netcoreapp2.2" t="Include">
+            <e p="authService.AssemblyInfo.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Program.cs" t="Include" />
+      <e p="Properties" t="Include">
+        <e p="launchSettings.json" t="Include" />
+      </e>
+      <e p="Services" t="Include">
+        <e p="AuthService.cs" t="Include" />
+        <e p="IAuthService.cs" t="Include" />
+        <e p="IMongoDbService.cs" t="Include" />
+        <e p="IPasswordHasher.cs" t="Include" />
+        <e p="IUsersService.cs" t="Include" />
+        <e p="MongoDbService.cs" t="Include" />
+        <e p="PasswordHasher.cs" t="Include" />
+        <e p="UsersService.cs" t="Include" />
+      </e>
+      <e p="Settings" t="Include">
+        <e p="Application.cs" t="Include" />
+        <e p="Connections.cs" t="Include" />
+        <e p="MongoDb.cs" t="Include" />
+        <e p="TokenGeneration.cs" t="Include" />
+      </e>
+      <e p="Startup.cs" t="Include" />
+      <e p="wwwroot" t="Include" />
+    </e>
+    <e p="$USER_HOME$/Library/Caches/Rider2018.3/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2018.3/resharper-host/local/Transient/ReSharperHost/v183/SolutionCaches/_authService.157304532.00" t="ExcludeRecursive" />
+    <e p="$APPLICATION_CONFIG_DIR$/extensions" t="IncludeRecursive" />
+  </component>
+</project>
