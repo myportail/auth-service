@@ -6,14 +6,19 @@ services:
       dockerfile: Dockerfile
       context: .
     image: auth-service
+    container_name: authservice
     working_dir: /authService
     entrypoint: ["dotnet", "authService.dll"]
     environment:
       - ASPNETCORE_ENVIRONMENT=Docker
     networks:
       - auth-db_authService
+      - portail
     ports:
       - "8001:8001"
 networks:
   auth-db_authService:
     external: true
+  portail:
+    external: true
+

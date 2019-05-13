@@ -27,7 +27,8 @@ namespace authService.Services
             
                 var settings = new MongoClientSettings
                 {
-                    Server = new MongoServerAddress(AppSettings.Connections.Authdb.Server, 27017),
+                    Server = new MongoServerAddress(AppSettings.Connections.Authdb.Server, 
+                        AppSettings.Connections.Authdb.Port),
                     Credential = credential
                 };
 

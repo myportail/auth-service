@@ -80,24 +80,29 @@ namespace authService
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            SetupDefaultUser(app).Wait();
-            
-            if (env.IsDevelopment())
+            try
             {
-                app.UseDeveloperExceptionPage();
-            }
+                SetupDefaultUser(app).Wait();
 
-            app.UseSwagger();
-            app.UseAuthentication();
-            
-            app.UseSwaggerUI(c =>
+                if (env.IsDevelopment())
+                {
+                    app.UseDeveloperExceptionPage();
+                }
+
+                app.UseSwagger();
+                app.UseAuthentication();
+
+                app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); });
+
+                app.UseDefaultFiles();
+                app.UseStaticFiles();
+                app.UseMvc();
+            }
+            catch (Exception ex)
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-            });
-            
-            app.UseDefaultFiles();
-            app.UseStaticFiles();
-            app.UseMvc();
+                System.Console.Error.WriteLine(ex.ToString());
+                throw ex;
+            }
         }
 
         async Task SetupDefaultUser(IApplicationBuilder app)

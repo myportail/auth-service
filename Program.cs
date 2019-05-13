@@ -36,6 +36,12 @@ namespace authService
             //configuration.GetSection("App").Bind(appConfig);
 
             return WebHost.CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration((hostingContext, config) =>
+                    {
+                        config.SetBasePath(Directory.GetCurrentDirectory());
+                        config.AddJsonFile($"secrets/appSettings.{envName}.json", optional: true, reloadOnChange: true);
+                        config.AddCommandLine(args);
+                    })
                 .UseConfiguration(configuration)
                 .UseStartup<Startup>()
                 .Build();
