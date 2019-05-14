@@ -65,6 +65,7 @@
         <e p="IUsersService.cs" t="Include" />
         <e p="MongoDbService.cs" t="Include" />
         <e p="PasswordHasher.cs" t="Include" />
+        <e p="StubMongoDbService.cs" t="Include" />
         <e p="UsersService.cs" t="Include" />
       </e>
       <e p="Settings" t="Include">
