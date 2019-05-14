@@ -20,21 +20,21 @@ namespace authService.Services
 
             try
             {
-                var credential = MongoCredential.CreateCredential(
-                    AppSettings.Connections.Authdb.Database,
-                    AppSettings.Connections.Authdb.Username,
-                    AppSettings.Connections.Authdb.Password);
+//                var credential = MongoCredential.CreateCredential(
+//                    AppSettings.Connections.Authdb.Database,
+//                    AppSettings.Connections.Authdb.Username,
+//                    AppSettings.Connections.Authdb.Password);
             
-                var settings = new MongoClientSettings
-                {
-                    Server = new MongoServerAddress(AppSettings.Connections.Authdb.Server, 
-                        AppSettings.Connections.Authdb.Port),
-                    Credential = credential
-                };
-
-                var mongoClient = new MongoClient(settings);
-
-                Database = mongoClient.GetDatabase(AppSettings.Connections.Authdb.Database);
+//                var settings = new MongoClientSettings
+//                {
+//                    Server = new MongoServerAddress(AppSettings.Connections.Authdb.Server, 
+//                        AppSettings.Connections.Authdb.Port),
+//                    Credential = credential
+//                };
+//
+//                var mongoClient = new MongoClient(settings);
+//
+//                Database = mongoClient.GetDatabase(AppSettings.Connections.Authdb.Database);
 
             }
             catch (Exception e)
@@ -48,11 +48,11 @@ namespace authService.Services
         {
             try
             {
-                var collections = Database.ListCollections().ToList();
-                if (collections.Count == 0)
-                {
-                    var usersCollection = await CreateAuthUsersCollection();
-                }
+//                var collections = Database.ListCollections().ToList();
+//                if (collections.Count == 0)
+//                {
+//                    var usersCollection = await CreateAuthUsersCollection();
+//                }
             }
             catch (Exception e)
             {
@@ -77,11 +77,11 @@ namespace authService.Services
         {
             try
             {
-                await usersCollection.InsertOneAsync(new User()
-                {
-                    Name = "Admin",
-                    Password = "Admin@123"
-                });
+//                await usersCollection.InsertOneAsync(new User()
+//                {
+//                    Name = "Admin",
+//                    Password = "Admin@123"
+//                });
             }
             catch (Exception e)
             {

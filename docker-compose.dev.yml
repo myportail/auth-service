@@ -1,4 +1,4 @@
-version: '2'
+version: '3.7'
 
 services:
   auth-service:
@@ -11,9 +11,11 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=DockerDev
     networks:
-      - auth-db_authService
+      - myportail_authService
     ports:
       - "8001:8001"
+    external_links:
+      - authdb
 networks:
-  auth-db_authService:
+  myportail_authService:
     external: true

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -19,7 +20,14 @@ namespace authService.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            var vars = Environment.GetEnvironmentVariables();
+            var res = new List<string>();
+            foreach (DictionaryEntry de in vars)
+            {
+                res.Add($"{de.Key} --> {de.Value}");
+            }
+            return res;
+//            return new string[] { "value1", "value2" };
         }
 
         // GET api/values/5

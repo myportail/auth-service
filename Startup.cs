@@ -116,15 +116,15 @@ namespace authService
 //                context.Database.Migrate();
 
                 var userService = serviceScope.ServiceProvider.GetService<Services.IUsersService>();
-                var adminUser = await userService.GetUserByName("Admin");
-                if (adminUser == null)
-                {
-                    await userService.AddUser(new User()
-                    {
-                        Name = "Admin",
-                        Password = "Admin@123"
-                    });
-                }
+//                var adminUser = await userService.GetUserByName("Admin");
+//                if (adminUser == null)
+//                {
+//                    await userService.AddUser(new User()
+//                    {
+//                        Name = "Admin",
+//                        Password = "Admin@123"
+//                    });
+//                }
             }            
         }
     }

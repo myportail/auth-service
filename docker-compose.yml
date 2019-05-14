@@ -16,9 +16,10 @@ services:
       - portail
     ports:
       - "8001:8001"
+    external_links:
+      - authdb
 networks:
   auth-db_authService:
     external: true
   portail:
     external: true
-
