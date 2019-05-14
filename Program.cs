@@ -25,10 +25,21 @@ namespace authService
         public static IWebHost BuildWebHost(string[] args)
         {
             var envName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+            Console.WriteLine($"environment name: '{envName}'");
 
-            var configuration = new ConfigurationBuilder()
-              .AddJsonFile("hosting.json", optional: false, reloadOnChange: true)
-              .AddJsonFile($"hosting.{envName}.json", optional: true, reloadOnChange: true)
+            var envHostFilename = $"hosting.{envName}.json";
+            Console.WriteLine($"environment host filename: '{envHostFilename}'");
+
+            var configurationBuilder = new ConfigurationBuilder()
+              .AddJsonFile("hosting.json", optional: false, reloadOnChange: true);
+
+            if (envName != null)
+            {
+                configurationBuilder
+                    .AddJsonFile($"hosting.{envName}.json", optional: true, reloadOnChange: true);
+            }
+
+            var configuration = configurationBuilder
               .AddCommandLine(args)
               .Build();
 
