@@ -26,6 +26,8 @@ namespace authService
         {
             Configuration = configuration;
             AppSettings = Configuration.GetSection("App").Get<Settings.Application>();
+
+            AppSettings.Validate();
         }
 
         public IConfiguration Configuration { get; }

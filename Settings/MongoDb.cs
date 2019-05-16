@@ -1,6 +1,8 @@
+using authService.Attributes.Settings;
+
 namespace authService.Settings
 {
-    public class MongoDb
+    public class MongoDb : Settings
     {
         public string ConnectionString { get; set; }
         public string Server { get; set; }
@@ -8,5 +10,8 @@ namespace authService.Settings
         public string Username { get; set; }
         public string Password { get; set; }
         public int Port { get; set; }
+        
+        [Required]
+        public string ServiceName { get; set; }
     }
 }

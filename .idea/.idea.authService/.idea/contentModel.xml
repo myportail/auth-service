@@ -7,6 +7,12 @@
       <e p="appsettings.Docker.json" t="Include" />
       <e p="appsettings.DockerDev.json" t="Include" />
       <e p="appsettings.json" t="Include" />
+      <e p="Attributes" t="Include">
+        <e p="Settings" t="Include">
+          <e p="IPropertyValidator.cs" t="Include" />
+          <e p="Required.cs" t="Include" />
+        </e>
+      </e>
       <e p="authService.csproj" t="IncludeRecursive" />
       <e p="authService.sln" t="IncludeFlat" />
       <e p="bin" t="ExcludeRecursive" />
@@ -71,7 +77,9 @@
       <e p="Settings" t="Include">
         <e p="Application.cs" t="Include" />
         <e p="Connections.cs" t="Include" />
+        <e p="ISettings.cs" t="Include" />
         <e p="MongoDb.cs" t="Include" />
+        <e p="Settings.cs" t="Include" />
         <e p="TokenGeneration.cs" t="Include" />
       </e>
       <e p="Startup.cs" t="Include" />

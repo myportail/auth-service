@@ -1,6 +1,6 @@
 ﻿namespace authService.Settings
 {
-    public class TokenGeneration
+    public class TokenGeneration : Settings
     {
         public string SecurityKey { get; set; }
         public string Issuer { get; set; }

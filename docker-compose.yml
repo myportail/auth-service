@@ -2,11 +2,11 @@ version: '2'
 
 services:
   auth-service:
-    build:
-      dockerfile: Dockerfile
-      context: .
-    image: auth-service
-#    image: cobreti/myportail-auth-service:latest
+#    build:
+#      dockerfile: Dockerfile
+#      context: .
+#    image: auth-service
+    image: cobreti/myportail-auth-service:latest
     container_name: authservice
     working_dir: /authService
     entrypoint: ["dotnet", "authService.dll"]
