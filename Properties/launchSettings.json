@@ -21,7 +21,23 @@
       "launchBrowser": true,
       "launchUrl": "api/values",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "AUTHDBPROXY_PORT_27017_TCP": "tcp://10.105.250.27:27017",
+        "AUTHPROXY_PORT_8001_TCP": "tcp://10.97.111.211:8001",
+        "AUTHPROXY_PORT_8001_TCP_PROTO": "tcp",
+        "AUTHPROXY_PORT": "tcp://10.97.111.211:8001",
+        "AUTHPROXY_PORT_8001_TCP_PORT": "8001",
+        "AUTHDBPROXY_PORT_27017_TCP_PORT": "27017",
+        "AUTHDBPROXY_SERVICE_PORT": "27017",
+        "AUTHDBPROXY_PORT": "tcp://10.105.250.27:27017",
+        "AUTHDBPROXY_SERVICE_PORT_MONGODB": "31843",
+        "AUTHDBPROXY_SERVICE_HOST": "192.168.180.128",
+        "AUTHPROXY_SERVICE_HOST": "10.97.111.211",
+        "AUTHPROXY_SERVICE_PORT": "8001",
+        "AUTHPROXY_SERVICE_PORT_WEB": "8001",
+        "AUTHDBPROXY_PORT_27017_TCP_ADDR": "10.105.250.27",
+        "AUTHPROXY_PORT_8001_TCP_ADDR": "10.97.111.211",
+        "AUTHDBPROXY_PORT_27017_TCP_PROTO": "tcp"
       },
       "applicationUrl": "http://localhost:17702/"
     }

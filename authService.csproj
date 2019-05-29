@@ -5,7 +5,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="Contexts" />
-    <Folder Include="Model\private" />
     <Folder Include="Contexts\" />
     <Folder Include="Settings\" />
     <Folder Include="Model\" />

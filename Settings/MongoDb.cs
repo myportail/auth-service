@@ -12,6 +12,6 @@ namespace authService.Settings
         public int Port { get; set; }
         
         [Required]
-        public string ServiceName { get; set; }
+        public Service Service { get; set; }
     }
 }

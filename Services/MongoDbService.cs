@@ -14,12 +14,27 @@ namespace authService.Services
         
         public IMongoCollection<Model.MongoDb.User> UsersCollection => Database.GetCollection<Model.MongoDb.User>("authUsers");
         
-        public MongoDbService(Settings.Application appSettings)
+        public MongoDbService(Settings.Application appSettings,
+            IServiceResolver serviceResolver)
         {
             AppSettings = appSettings;
-
+            
             try
             {
+                var service = appSettings?.Connections?.Authdb?.Service;
+                if (service == null)
+                    throw new Exception("Failure to get service information for Authdb");
+                
+                var name = appSettings.Connections.Authdb.Service.Name;
+                var portName = appSettings.Connections.Authdb.Service.PortName;
+                var serviceAddress = serviceResolver.Resolve(
+                    name, 
+                    portName);
+                if (serviceAddress == null)
+                    throw new Exception($"Failure to resolve service address for {name} : {portName}");
+                
+                Console.WriteLine($"AuthDb resolve to {serviceAddress.Address}:{serviceAddress.Port.ToString()}");
+
                 var credential = MongoCredential.CreateCredential(
                     AppSettings.Connections.Authdb.Database,
                     AppSettings.Connections.Authdb.Username,
@@ -27,8 +42,8 @@ namespace authService.Services
             
                 var settings = new MongoClientSettings
                 {
-                    Server = new MongoServerAddress(AppSettings.Connections.Authdb.Server, 
-                        AppSettings.Connections.Authdb.Port),
+                    Server = new MongoServerAddress(serviceAddress.Address, 
+                        serviceAddress.Port),
                     Credential = credential
                 };
 
@@ -38,8 +53,7 @@ namespace authService.Services
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
-                throw;
+                Console.Error.WriteLine(e);
             }
         }
 
@@ -55,8 +69,7 @@ namespace authService.Services
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
-                throw;
+                Console.Error.WriteLine(e);
             }
         }
 
@@ -84,7 +97,7 @@ namespace authService.Services
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
+                Console.Error.WriteLine(e);
             }
         }
     }
