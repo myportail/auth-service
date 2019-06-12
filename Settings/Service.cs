@@ -4,5 +4,7 @@ namespace authService.Settings
     {
         public string Name { get; set; }
         public string PortName { get; set; }
+        
+        public int PortNumber { get; set; }
     }
 }

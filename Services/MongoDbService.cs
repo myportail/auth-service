@@ -27,16 +27,17 @@ namespace authService.Services
                     throw new Exception("Failure to get service information for Authdb");
                 
                 var name = appSettings.Connections.Authdb.Service.Name;
-                var portName = appSettings.Connections.Authdb.Service.PortName;
+//                var portName = appSettings.Connections.Authdb.Service.PortName;
+                var portNumber = appSettings.Connections.Authdb.Service.PortNumber;
 //                var serviceAddress = serviceResolver.Resolve(
 //                    name, 
 //                    portName);
 
-                var serviceAddress = new ServiceAddress("authdbproxy", 27017);
-                if (serviceAddress == null)
-                    throw new Exception($"Failure to resolve service address for {name} : {portName}");
+//                var serviceAddress = new ServiceAddress("authdbproxy", 27017);
+//                if (serviceAddress == null)
+//                    throw new Exception($"Failure to resolve service address for {name} : {portNumber}");
                 
-                Console.WriteLine($"AuthDb resolve to {serviceAddress.Address}:{serviceAddress.Port.ToString()}");
+                Console.WriteLine($"AuthDb connection: {name}:{portNumber.ToString()}");
 
                 var credential = MongoCredential.CreateCredential(
                     AppSettings.Connections.Authdb.Database,
@@ -45,8 +46,7 @@ namespace authService.Services
             
                 var settings = new MongoClientSettings
                 {
-                    Server = new MongoServerAddress(serviceAddress.Address, 
-                        serviceAddress.Port),
+                    Server = new MongoServerAddress(name, portNumber),
                     Credential = credential
                 };
 
