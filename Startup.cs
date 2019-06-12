@@ -46,7 +46,6 @@ namespace authService
             services.AddScoped<Services.IAuthService, Services.AuthService>();
             services.AddScoped<Services.IPasswordHasher, Services.PasswordHasher>();
             services.AddScoped<Services.IMongoDbService, Services.MongoDbService>();
-            services.AddScoped<Services.IServiceResolver, Services.ServiceResolver>();
             services.AddSingleton<Settings.Application>(AppSettings);
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>

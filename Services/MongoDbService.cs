@@ -15,8 +15,7 @@ namespace authService.Services
         
         public IMongoCollection<Model.MongoDb.User> UsersCollection => Database.GetCollection<Model.MongoDb.User>("authUsers");
         
-        public MongoDbService(Settings.Application appSettings,
-            IServiceResolver serviceResolver)
+        public MongoDbService(Settings.Application appSettings)
         {
             AppSettings = appSettings;
             
@@ -27,15 +26,7 @@ namespace authService.Services
                     throw new Exception("Failure to get service information for Authdb");
                 
                 var name = appSettings.Connections.Authdb.Service.Name;
-//                var portName = appSettings.Connections.Authdb.Service.PortName;
                 var portNumber = appSettings.Connections.Authdb.Service.PortNumber;
-//                var serviceAddress = serviceResolver.Resolve(
-//                    name, 
-//                    portName);
-
-//                var serviceAddress = new ServiceAddress("authdbproxy", 27017);
-//                if (serviceAddress == null)
-//                    throw new Exception($"Failure to resolve service address for {name} : {portNumber}");
                 
                 Console.WriteLine($"AuthDb connection: {name}:{portNumber.ToString()}");
 
