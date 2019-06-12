@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using authService.Model;
 using authService.Model.MongoDb;
 using MongoDB.Bson;
 using MongoDB.Driver;
@@ -27,9 +28,11 @@ namespace authService.Services
                 
                 var name = appSettings.Connections.Authdb.Service.Name;
                 var portName = appSettings.Connections.Authdb.Service.PortName;
-                var serviceAddress = serviceResolver.Resolve(
-                    name, 
-                    portName);
+//                var serviceAddress = serviceResolver.Resolve(
+//                    name, 
+//                    portName);
+
+                var serviceAddress = new ServiceAddress("authdbproxy", 27017);
                 if (serviceAddress == null)
                     throw new Exception($"Failure to resolve service address for {name} : {portName}");
                 
