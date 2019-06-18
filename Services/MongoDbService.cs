@@ -1,12 +1,7 @@
 using System;
 using System.Net;
-using System.Text;
-using System.Text.Encodings.Web;
 using System.Threading.Tasks;
-using System.Web;
-using authService.Model;
 using authService.Model.MongoDb;
-using MongoDB.Bson;
 using MongoDB.Driver;
 
 namespace authService.Services
@@ -34,39 +29,12 @@ namespace authService.Services
                 
                 Console.WriteLine($"AuthDb connection: {name}:{portNumber.ToString()}");
 
-                MongoInternalIdentity identity = new MongoInternalIdentity(
-                    AppSettings.Connections.Authdb.Database,
-                    AppSettings.Connections.Authdb.Username);
-
                 var encodedPwd = WebUtility.UrlEncode(AppSettings.Connections.Authdb.Password);
-//                var encodedPwdBytes = HttpUtility.UrlEncodeToBytes(AppSettings.Connections.Authdb.Password, Encoding.ASCII);
-//                var encodedPwd = System.Text.Encoding.UTF8.GetString(encodedPwdBytes);
-//                var encodedPwd = Uri.EscapeUriString(AppSettings.Connections.Authdb.Password);
-                PasswordEvidence pwdEvidence = new PasswordEvidence(AppSettings.Connections.Authdb.Password);
-
-                MongoCredential credential = new MongoCredential(
-                    "SCRAM-SHA-1",
-                    identity,
-                    pwdEvidence);
                 
-//                var credential = MongoCredential.CreateCredential(
-//                    AppSettings.Connections.Authdb.Database,
-//                    AppSettings.Connections.Authdb.Username,
-//                    AppSettings.Connections.Authdb.Password);
-            
-                var settings = new MongoClientSettings
-                {
-                    Server = new MongoServerAddress(name, portNumber),
-                    Credential = credential
-                };
+                var connectionString = $"mongodb://{AppSettings.Connections.Authdb.Username}:{encodedPwd}@{name}:{portNumber.ToString()}/?authSource=auth";
 
-//                encodedPwd = "~%5Dub%3A5jc%3C8!%3A-(z";
-                var connectionString = $"mongodb://{AppSettings.Connections.Authdb.Username}:{encodedPwd}@138.197.130.157:27017/?authSource=auth";
-
-//                var mongoClient = new MongoClient(settings);
                 var mongoClient = new MongoClient(connectionString);
 
-//                Database = mongoClient.GetDatabase(AppSettings.Connections.Authdb.Database);
                 Database = mongoClient.GetDatabase("auth");
                 Database.CreateCollection("Test");
             }
