@@ -16,7 +16,9 @@
       <e p="authService.csproj" t="IncludeRecursive" />
       <e p="authService.sln" t="IncludeFlat" />
       <e p="bin" t="ExcludeRecursive" />
-      <e p="Contexts" t="Include" />
+      <e p="Contexts" t="Include">
+        <e p="UserContext.cs" t="Include" />
+      </e>
       <e p="Controllers" t="Include">
         <e p="LoginController.cs" t="Include" />
         <e p="UsersController.cs" t="Include" />

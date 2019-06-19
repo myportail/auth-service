@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
+using authService.Contexts;
 using authService.Model.Api;
 using authService.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -37,15 +40,15 @@ namespace authService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddCors();
             
-//            var connection = @"server=localhost;database=auth;user=sa;password=igQFUwjZZyxgken7gcKg*gTu";
-//            var connection = AppSettings.Connections.AuthConnString;
+            var dbConnString = $"Server=138.197.130.242;Database=dev_authusers;Uid=authservice;Pwd=R*Yd&K98M^f#@+U#";
             
-//            services.AddDbContext<Contexts.UsersDbContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<UserContext>(options => options.UseMySql(dbConnString));
             services.AddScoped<Services.IUsersService, Services.UsersService>();
             services.AddScoped<Services.IAuthService, Services.AuthService>();
             services.AddScoped<Services.IPasswordHasher, Services.PasswordHasher>();
-            services.AddScoped<Services.IMongoDbService, Services.MongoDbService>();
+            services.AddScoped<Services.IMongoDbService, Services.StubMongoDbService>();
             services.AddSingleton<Settings.Application>(AppSettings);
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
@@ -75,6 +78,7 @@ namespace authService
                 c.OperationFilter<SecurityRequirementsOperationFilter>();
                 
             });
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             
             
         }
@@ -117,16 +121,16 @@ namespace authService
 //                var context = serviceScope.ServiceProvider.GetService<Contexts.UsersDbContext>();
 //                context.Database.Migrate();
 
-//                var userService = serviceScope.ServiceProvider.GetService<Services.IUsersService>();
-//                var adminUser = await userService.GetUserByName("Admin");
-//                if (adminUser == null)
-//                {
-//                    await userService.AddUser(new User()
-//                    {
-//                        Name = "Admin",
-//                        Password = "Admin@123"
-//                    });
-//                }
+                var userService = serviceScope.ServiceProvider.GetService<Services.IUsersService>();
+                var adminUser = await userService.GetUserByName("Admin");
+                if (adminUser == null)
+                {
+                    await userService.AddUser(new User()
+                    {
+                        Name = "Admin",
+                        Password = "Admin@123"
+                    });
+                }
             }            
         }
     }

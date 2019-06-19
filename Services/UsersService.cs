@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using authService.Contexts;
 using authService.Model.Api;
 using authService.Settings;
 using Microsoft.EntityFrameworkCore;
@@ -15,31 +16,37 @@ namespace authService.Services
         private IPasswordHasher PasswordHasher { get; }
         
         private IMongoDbService MongoDbService { get; }
+        
+        private UserContext UserContext { get; }
 
         private IMongoCollection<Model.MongoDb.User> UsersCollection => MongoDbService.Database.GetCollection<Model.MongoDb.User>("authUsers");
 
         public UsersService(
             IMongoDbService mongoDbService,
-            IPasswordHasher passwordHasher)
+            IPasswordHasher passwordHasher,
+            UserContext userContext)
         {
+            UserContext = userContext;
             PasswordHasher = passwordHasher;
             MongoDbService = mongoDbService;
         }
 
-        public async Task<Model.MongoDb.User> AddUser(Model.Api.User user)
+        public async Task<Model.Db.User> AddUser(Model.Api.User user)
         {
             try
             {
-                var mongoDbUser = new Model.MongoDb.User()
+                var dbUser = new Model.Db.User()
                 {
                     Name = user.Name,
                     Password = PasswordHasher.HashPassword(user.Password),
                     Id = Guid.NewGuid().ToString()
                 };
 
-                await UsersCollection.InsertOneAsync(mongoDbUser);
+                await UserContext.Users.AddAsync(dbUser);
+                await UserContext.SaveChangesAsync();
+//                await UsersCollection.InsertOneAsync(mongoDbUser);
                                 
-                return mongoDbUser;
+                return dbUser;
             }
             catch (Exception ex)
             {
@@ -48,19 +55,26 @@ namespace authService.Services
             }
         }
 
-        public async Task<Model.MongoDb.User> GetUserByName(string name)
+        public async Task<Model.Db.User> GetUserByName(string name)
         {
             try
             {
-                using (var result = await UsersCollection.FindAsync(x => x.Name == name))
+                var res = UserContext.Users.Where(x => x.Name.Equals(name));
+                if (res.Any())
                 {
-                    var users = result.ToList();
+                    return res.First();
+                }
 
-                    if (users.Count > 0)
-                        return users.First();
-
-                    return null;
-                };
+                return null;
+//                using (var result = await UsersCollection.FindAsync(x => x.Name == name))
+//                {
+//                    var users = result.ToList();
+//
+//                    if (users.Count > 0)
+//                        return users.First();
+//
+//                    return null;
+//                };
             }
             catch (Exception ex)
             {
