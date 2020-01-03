@@ -1,6 +1,7 @@
+using AuthLib.Db.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace authService.Contexts
+namespace Authlib.Contexts
 {
     public class UserContext : DbContext
     {
@@ -8,15 +9,15 @@ namespace authService.Contexts
         {
             
         }
+        
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Model.Db.User>()
-                .ToTable("users");
+            modelBuilder.Entity<User>().ToTable("Users");
         }
 
-        public DbSet<Model.Db.User> Users { get; set; }
     }
 }

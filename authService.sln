@@ -1,7 +1,11 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "authService", "authService.csproj", "{F834C977-F84E-4D24-A1AA-978167A42EF8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "authService", "service/authService.csproj", "{F834C977-F84E-4D24-A1AA-978167A42EF8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "authlib", "authlib\authlib.csproj", "{3985EA3B-DA1E-4378-A0A9-CE5E6AD14A9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "authInit", "authInit\authInit.csproj", "{A30320D9-E202-4C1E-A433-678E3B052934}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,5 +17,13 @@ Global
 		{F834C977-F84E-4D24-A1AA-978167A42EF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F834C977-F84E-4D24-A1AA-978167A42EF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F834C977-F84E-4D24-A1AA-978167A42EF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3985EA3B-DA1E-4378-A0A9-CE5E6AD14A9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3985EA3B-DA1E-4378-A0A9-CE5E6AD14A9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3985EA3B-DA1E-4378-A0A9-CE5E6AD14A9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3985EA3B-DA1E-4378-A0A9-CE5E6AD14A9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A30320D9-E202-4C1E-A433-678E3B052934}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A30320D9-E202-4C1E-A433-678E3B052934}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A30320D9-E202-4C1E-A433-678E3B052934}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A30320D9-E202-4C1E-A433-678E3B052934}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -4,6 +4,7 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Folder Include="Contexts" />
     <Folder Include="Contexts\" />
     <Folder Include="Settings\" />
     <Folder Include="Model\" />
