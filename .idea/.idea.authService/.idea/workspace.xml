@@ -2,89 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="826acc4c-7935-4069-9cba-292c5e13d319" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/authInit/Configuration/Application.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authInit/Configuration/Authdb.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authlib/authlib.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/Contexts/UserContext.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.authService/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.authService/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.authService/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.authService/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Attributes/Settings/IPropertyValidator.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Attributes/Settings/Required.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contexts/UserContext.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contexts/UsersDbContext.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/LoginController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/UsersController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/ValuesController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile.dev" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exceptions/NoDbConnection.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Api/LoginCredentials.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Api/User.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Db/User.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Db/UserRoles.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/MongoDb/User.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/ServiceAddress.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Properties/launchSettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/AuthService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/IAuthService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/IMongoDbService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/IPasswordHasher.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/IUsersService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/MongoDbService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/PasswordHasher.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/StubMongoDbService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/UsersService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Settings/Application.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Settings/Connections.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Settings/ISettings.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Settings/MongoDb.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Settings/Service.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Settings/Settings.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Settings/TokenGeneration.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Startup.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/appsettings.Development.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/appsettings.Docker.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/appsettings.DockerDev.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/appsettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/authService.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/authService.sln" beforeDir="false" afterPath="$PROJECT_DIR$/authService.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authService.sln.DotSettings.user" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.dev.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-run.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hosting.Development.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hosting.Docker.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hosting.DockerDev.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hosting.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/secrets/appsettings.Development.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/authInit/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/authInit/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authInit/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/authInit/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authInit/authInit.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/authInit/authInit.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authlib/Contexts/UserContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/authInit/Contexts/UserContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authlib/authlib.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/authlib/authlib.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/authService.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/service/authService.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>UsersContext</find>
-      <find>AuthConnString</find>
-      <find>migra</find>
-      <find>SetupDefaultUser</find>
-      <find>appsettings</find>
-      <find>ASPNETCORE_ENVIRONMENT</find>
-      <find>Utf</find>
-    </findStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/69F795DF-FC84-4780-BFCF-FF4FF8415A92/c1/124c9a31/RelationalModelCustomizer.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/authlib/Contexts/UserContext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/authInit/Contexts/UserContext.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ADF771F9-2E75-4FE1-BB85-C5850CD0C16B/f3/3fcadbf8/ModelCustomizer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/service/Services/IUsersService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ADF771F9-2E75-4FE1-BB85-C5850CD0C16B/8e/c459ecf2/ModelSource.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/authInit/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/83D46ECE-B9E1-41E4-8512-26C8E5372B51/de/d5ceeb86/MongoClient.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/authInit/Configuration/Application.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/service/Contexts/UserContext.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/authInit/Configuration/Authdb.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/83D46ECE-B9E1-41E4-8512-26C8E5372B51/a3/009201ea/MongoIdentityEvidence.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/authlib/Models/Db/User.cs" root0="FORCE_HIGHLIGHTING" />
@@ -92,10 +37,13 @@
     <setting file="file://$PROJECT_DIR$/service/Startup.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/service/appsettings.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/CDE64D88-9F35-4862-98A0-A3C52BBE6ED8/cb/922f2dc7/IMongoDatabase.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/authInit/Migrations/UserContextModelSnapshot.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/83D46ECE-B9E1-41E4-8512-26C8E5372B51/d2/355d1add/MongoCredential.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/authInit/Startup.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/authInit/Migrations/20200103223425_InitialCreate.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/83D46ECE-B9E1-41E4-8512-26C8E5372B51/f8/0375a14d/PasswordEvidence.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/authInit/appsettings.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2050C92A-D081-4D01-836E-66C4768FC8A5/1D8/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/83D46ECE-B9E1-41E4-8512-26C8E5372B51/67/5fbfcd94/MongoIdentity.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/83D46ECE-B9E1-41E4-8512-26C8E5372B51/1f/37efa025/MongoClientSettings.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/service/Program.cs" root0="FORCE_HIGHLIGHTING" />
@@ -107,8 +55,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Services/IAuthService.cs" />
-        <option value="$PROJECT_DIR$/Controllers/LoginController.cs" />
         <option value="$PROJECT_DIR$/Services/AuthService.cs" />
         <option value="$PROJECT_DIR$/Dockerfile" />
         <option value="$PROJECT_DIR$/docker_debug/Dockerfile.dev" />
@@ -153,10 +99,12 @@
         <option value="$PROJECT_DIR$/authInit/Program.cs" />
         <option value="$PROJECT_DIR$/authInit/Configuration/Authdb.cs" />
         <option value="$PROJECT_DIR$/authInit/Configuration/Application.cs" />
-        <option value="$PROJECT_DIR$/authInit/appsettings.json" />
         <option value="$PROJECT_DIR$/auth-lib/Models/Db/User.cs" />
         <option value="$PROJECT_DIR$/authlib/Models/Db/User.cs" />
         <option value="$PROJECT_DIR$/authlib/Contexts/UserContext.cs" />
+        <option value="$PROJECT_DIR$/authInit/Contexts/UserContext.cs" />
+        <option value="$PROJECT_DIR$/service/Contexts/UserContext.cs" />
+        <option value="$PROJECT_DIR$/authInit/appsettings.json" />
         <option value="$PROJECT_DIR$/authInit/Startup.cs" />
       </list>
     </option>
@@ -306,7 +254,7 @@
       <workItem from="1574005598645" duration="1936000" />
       <workItem from="1578063450433" duration="84000" />
       <workItem from="1578063761224" duration="2753000" />
-      <workItem from="1578084856502" duration="4034000" />
+      <workItem from="1578084856502" duration="6703000" />
     </task>
     <servers />
   </component>
@@ -333,110 +281,110 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="304" y="187" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1578086437949" />
-    <state width="444" height="466" key="DebuggerActiveHint" timestamp="1578089670990">
+    <state width="444" height="466" key="DebuggerActiveHint" timestamp="1578091838066">
       <screen x="0" y="23" width="1680" height="998" />
     </state>
-    <state width="444" height="466" key="DebuggerActiveHint/0.23.1680.998@0.23.1680.998" timestamp="1578089670990" />
-    <state width="1638" height="205" key="GridCell.Tab.0.bottom" timestamp="1578089654601">
+    <state width="444" height="466" key="DebuggerActiveHint/0.23.1680.998@0.23.1680.998" timestamp="1578091838066" />
+    <state width="1638" height="288" key="GridCell.Tab.0.bottom" timestamp="1578092590678">
       <screen x="0" y="23" width="1680" height="998" />
     </state>
     <state width="1638" height="365" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1578086581324" />
-    <state width="1638" height="205" key="GridCell.Tab.0.bottom/0.23.1680.998@0.23.1680.998" timestamp="1578089654601" />
-    <state width="1638" height="205" key="GridCell.Tab.0.center" timestamp="1578089654600">
+    <state width="1638" height="288" key="GridCell.Tab.0.bottom/0.23.1680.998@0.23.1680.998" timestamp="1578092590678" />
+    <state width="1638" height="288" key="GridCell.Tab.0.center" timestamp="1578092590678">
       <screen x="0" y="23" width="1680" height="998" />
     </state>
     <state width="1638" height="365" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1578086581322" />
-    <state width="1638" height="205" key="GridCell.Tab.0.center/0.23.1680.998@0.23.1680.998" timestamp="1578089654600" />
-    <state width="1638" height="205" key="GridCell.Tab.0.left" timestamp="1578089654599">
+    <state width="1638" height="288" key="GridCell.Tab.0.center/0.23.1680.998@0.23.1680.998" timestamp="1578092590678" />
+    <state width="1638" height="288" key="GridCell.Tab.0.left" timestamp="1578092590677">
       <screen x="0" y="23" width="1680" height="998" />
     </state>
     <state width="1638" height="365" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1578086581321" />
-    <state width="1638" height="205" key="GridCell.Tab.0.left/0.23.1680.998@0.23.1680.998" timestamp="1578089654599" />
-    <state width="1638" height="205" key="GridCell.Tab.0.right" timestamp="1578089654600">
+    <state width="1638" height="288" key="GridCell.Tab.0.left/0.23.1680.998@0.23.1680.998" timestamp="1578092590677" />
+    <state width="1638" height="288" key="GridCell.Tab.0.right" timestamp="1578092590678">
       <screen x="0" y="23" width="1680" height="998" />
     </state>
     <state width="1638" height="365" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1578086581323" />
-    <state width="1638" height="205" key="GridCell.Tab.0.right/0.23.1680.998@0.23.1680.998" timestamp="1578089654600" />
-    <state width="1638" height="205" key="GridCell.Tab.1.bottom" timestamp="1578089657203">
+    <state width="1638" height="288" key="GridCell.Tab.0.right/0.23.1680.998@0.23.1680.998" timestamp="1578092590678" />
+    <state width="1638" height="288" key="GridCell.Tab.1.bottom" timestamp="1578092596356">
       <screen x="0" y="23" width="1680" height="998" />
     </state>
     <state width="1638" height="365" key="GridCell.Tab.1.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1578086581326" />
-    <state width="1638" height="205" key="GridCell.Tab.1.bottom/0.23.1680.998@0.23.1680.998" timestamp="1578089657203" />
-    <state width="1638" height="205" key="GridCell.Tab.1.center" timestamp="1578089657202">
+    <state width="1638" height="288" key="GridCell.Tab.1.bottom/0.23.1680.998@0.23.1680.998" timestamp="1578092596356" />
+    <state width="1638" height="288" key="GridCell.Tab.1.center" timestamp="1578092596355">
       <screen x="0" y="23" width="1680" height="998" />
     </state>
     <state width="1638" height="365" key="GridCell.Tab.1.center/0.0.1680.1050@0.0.1680.1050" timestamp="1578086581325" />
-    <state width="1638" height="205" key="GridCell.Tab.1.center/0.23.1680.998@0.23.1680.998" timestamp="1578089657202" />
-    <state width="1638" height="205" key="GridCell.Tab.1.left" timestamp="1578089657202">
+    <state width="1638" height="288" key="GridCell.Tab.1.center/0.23.1680.998@0.23.1680.998" timestamp="1578092596355" />
+    <state width="1638" height="288" key="GridCell.Tab.1.left" timestamp="1578092596355">
       <screen x="0" y="23" width="1680" height="998" />
     </state>
     <state width="1638" height="365" key="GridCell.Tab.1.left/0.0.1680.1050@0.0.1680.1050" timestamp="1578086581324" />
-    <state width="1638" height="205" key="GridCell.Tab.1.left/0.23.1680.998@0.23.1680.998" timestamp="1578089657202" />
-    <state width="1638" height="205" key="GridCell.Tab.1.right" timestamp="1578089657203">
+    <state width="1638" height="288" key="GridCell.Tab.1.left/0.23.1680.998@0.23.1680.998" timestamp="1578092596355" />
+    <state width="1638" height="288" key="GridCell.Tab.1.right" timestamp="1578092596355">
       <screen x="0" y="23" width="1680" height="998" />
     </state>
     <state width="1638" height="365" key="GridCell.Tab.1.right/0.0.1680.1050@0.0.1680.1050" timestamp="1578086581325" />
-    <state width="1638" height="205" key="GridCell.Tab.1.right/0.23.1680.998@0.23.1680.998" timestamp="1578089657203" />
-    <state width="1638" height="205" key="GridCell.Tab.2.bottom" timestamp="1578089654504">
+    <state width="1638" height="288" key="GridCell.Tab.1.right/0.23.1680.998@0.23.1680.998" timestamp="1578092596355" />
+    <state width="1638" height="288" key="GridCell.Tab.2.bottom" timestamp="1578092590596">
       <screen x="0" y="23" width="1680" height="998" />
     </state>
     <state width="1638" height="365" key="GridCell.Tab.2.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1578086581327" />
-    <state width="1638" height="205" key="GridCell.Tab.2.bottom/0.23.1680.998@0.23.1680.998" timestamp="1578089654504" />
-    <state width="1638" height="205" key="GridCell.Tab.2.center" timestamp="1578089654503">
+    <state width="1638" height="288" key="GridCell.Tab.2.bottom/0.23.1680.998@0.23.1680.998" timestamp="1578092590596" />
+    <state width="1638" height="288" key="GridCell.Tab.2.center" timestamp="1578092590596">
       <screen x="0" y="23" width="1680" height="998" />
     </state>
     <state width="1638" height="365" key="GridCell.Tab.2.center/0.0.1680.1050@0.0.1680.1050" timestamp="1578086581326" />
-    <state width="1638" height="205" key="GridCell.Tab.2.center/0.23.1680.998@0.23.1680.998" timestamp="1578089654503" />
-    <state width="1638" height="205" key="GridCell.Tab.2.left" timestamp="1578089654502">
+    <state width="1638" height="288" key="GridCell.Tab.2.center/0.23.1680.998@0.23.1680.998" timestamp="1578092590596" />
+    <state width="1638" height="288" key="GridCell.Tab.2.left" timestamp="1578092590595">
       <screen x="0" y="23" width="1680" height="998" />
     </state>
     <state width="1638" height="365" key="GridCell.Tab.2.left/0.0.1680.1050@0.0.1680.1050" timestamp="1578086581326" />
-    <state width="1638" height="205" key="GridCell.Tab.2.left/0.23.1680.998@0.23.1680.998" timestamp="1578089654502" />
-    <state width="1638" height="205" key="GridCell.Tab.2.right" timestamp="1578089654503">
+    <state width="1638" height="288" key="GridCell.Tab.2.left/0.23.1680.998@0.23.1680.998" timestamp="1578092590595" />
+    <state width="1638" height="288" key="GridCell.Tab.2.right" timestamp="1578092590596">
       <screen x="0" y="23" width="1680" height="998" />
     </state>
     <state width="1638" height="365" key="GridCell.Tab.2.right/0.0.1680.1050@0.0.1680.1050" timestamp="1578086581327" />
-    <state width="1638" height="205" key="GridCell.Tab.2.right/0.23.1680.998@0.23.1680.998" timestamp="1578089654503" />
-    <state width="1638" height="205" key="GridCell.Tab.3.bottom" timestamp="1578089654505">
+    <state width="1638" height="288" key="GridCell.Tab.2.right/0.23.1680.998@0.23.1680.998" timestamp="1578092590596" />
+    <state width="1638" height="288" key="GridCell.Tab.3.bottom" timestamp="1578092590598">
       <screen x="0" y="23" width="1680" height="998" />
     </state>
     <state width="1638" height="365" key="GridCell.Tab.3.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1578086581329" />
-    <state width="1638" height="205" key="GridCell.Tab.3.bottom/0.23.1680.998@0.23.1680.998" timestamp="1578089654505" />
-    <state width="1638" height="205" key="GridCell.Tab.3.center" timestamp="1578089654504">
+    <state width="1638" height="288" key="GridCell.Tab.3.bottom/0.23.1680.998@0.23.1680.998" timestamp="1578092590598" />
+    <state width="1638" height="288" key="GridCell.Tab.3.center" timestamp="1578092590597">
       <screen x="0" y="23" width="1680" height="998" />
     </state>
     <state width="1638" height="365" key="GridCell.Tab.3.center/0.0.1680.1050@0.0.1680.1050" timestamp="1578086581328" />
-    <state width="1638" height="205" key="GridCell.Tab.3.center/0.23.1680.998@0.23.1680.998" timestamp="1578089654504" />
-    <state width="1638" height="205" key="GridCell.Tab.3.left" timestamp="1578089654504">
+    <state width="1638" height="288" key="GridCell.Tab.3.center/0.23.1680.998@0.23.1680.998" timestamp="1578092590597" />
+    <state width="1638" height="288" key="GridCell.Tab.3.left" timestamp="1578092590597">
       <screen x="0" y="23" width="1680" height="998" />
     </state>
     <state width="1638" height="365" key="GridCell.Tab.3.left/0.0.1680.1050@0.0.1680.1050" timestamp="1578086581328" />
-    <state width="1638" height="205" key="GridCell.Tab.3.left/0.23.1680.998@0.23.1680.998" timestamp="1578089654504" />
-    <state width="1638" height="205" key="GridCell.Tab.3.right" timestamp="1578089654505">
+    <state width="1638" height="288" key="GridCell.Tab.3.left/0.23.1680.998@0.23.1680.998" timestamp="1578092590597" />
+    <state width="1638" height="288" key="GridCell.Tab.3.right" timestamp="1578092590597">
       <screen x="0" y="23" width="1680" height="998" />
     </state>
     <state width="1638" height="365" key="GridCell.Tab.3.right/0.0.1680.1050@0.0.1680.1050" timestamp="1578086581329" />
-    <state width="1638" height="205" key="GridCell.Tab.3.right/0.23.1680.998@0.23.1680.998" timestamp="1578089654505" />
-    <state width="1638" height="205" key="GridCell.Tab.4.bottom" timestamp="1578089654506">
+    <state width="1638" height="288" key="GridCell.Tab.3.right/0.23.1680.998@0.23.1680.998" timestamp="1578092590597" />
+    <state width="1638" height="288" key="GridCell.Tab.4.bottom" timestamp="1578092590599">
       <screen x="0" y="23" width="1680" height="998" />
     </state>
     <state width="1638" height="365" key="GridCell.Tab.4.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1578086581331" />
-    <state width="1638" height="205" key="GridCell.Tab.4.bottom/0.23.1680.998@0.23.1680.998" timestamp="1578089654506" />
-    <state width="1638" height="205" key="GridCell.Tab.4.center" timestamp="1578089654506">
+    <state width="1638" height="288" key="GridCell.Tab.4.bottom/0.23.1680.998@0.23.1680.998" timestamp="1578092590599" />
+    <state width="1638" height="288" key="GridCell.Tab.4.center" timestamp="1578092590598">
       <screen x="0" y="23" width="1680" height="998" />
     </state>
     <state width="1638" height="365" key="GridCell.Tab.4.center/0.0.1680.1050@0.0.1680.1050" timestamp="1578086581330" />
-    <state width="1638" height="205" key="GridCell.Tab.4.center/0.23.1680.998@0.23.1680.998" timestamp="1578089654506" />
-    <state width="1638" height="205" key="GridCell.Tab.4.left" timestamp="1578089654505">
+    <state width="1638" height="288" key="GridCell.Tab.4.center/0.23.1680.998@0.23.1680.998" timestamp="1578092590598" />
+    <state width="1638" height="288" key="GridCell.Tab.4.left" timestamp="1578092590598">
       <screen x="0" y="23" width="1680" height="998" />
     </state>
     <state width="1638" height="365" key="GridCell.Tab.4.left/0.0.1680.1050@0.0.1680.1050" timestamp="1578086581330" />
-    <state width="1638" height="205" key="GridCell.Tab.4.left/0.23.1680.998@0.23.1680.998" timestamp="1578089654505" />
-    <state width="1638" height="205" key="GridCell.Tab.4.right" timestamp="1578089654506">
+    <state width="1638" height="288" key="GridCell.Tab.4.left/0.23.1680.998@0.23.1680.998" timestamp="1578092590598" />
+    <state width="1638" height="288" key="GridCell.Tab.4.right" timestamp="1578092590599">
       <screen x="0" y="23" width="1680" height="998" />
     </state>
     <state width="1638" height="365" key="GridCell.Tab.4.right/0.0.1680.1050@0.0.1680.1050" timestamp="1578086581330" />
-    <state width="1638" height="205" key="GridCell.Tab.4.right/0.23.1680.998@0.23.1680.998" timestamp="1578089654506" />
+    <state width="1638" height="288" key="GridCell.Tab.4.right/0.23.1680.998@0.23.1680.998" timestamp="1578092590599" />
     <state x="440" y="264" key="Rider.ProjectTemplateDialog.Size" timestamp="1578085375324">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
@@ -466,56 +414,30 @@
           <option name="timeStamp" value="35" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/authlib/Contexts/UserContext.cs</url>
-          <line>16</line>
-          <properties documentPath="$PROJECT_DIR$/authlib/Contexts/UserContext.cs" initialLine="16">
+          <url>file://$PROJECT_DIR$/authInit/Migrations/UserContextModelSnapshot.cs</url>
+          <line>14</line>
+          <properties documentPath="$PROJECT_DIR$/authInit/Migrations/UserContextModelSnapshot.cs" initialLine="14">
             <startOffsets>
-              <option value="395" />
+              <option value="457" />
             </startOffsets>
             <endOffsets>
-              <option value="430" />
+              <option value="597" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="37" />
+          <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/authlib/Contexts/UserContext.cs</url>
+          <url>file://$PROJECT_DIR$/authInit/Migrations/20200103223425_InitialCreate.cs</url>
           <line>8</line>
-          <properties documentPath="$PROJECT_DIR$/authlib/Contexts/UserContext.cs" initialLine="8">
+          <properties documentPath="$PROJECT_DIR$/authInit/Migrations/20200103223425_InitialCreate.cs" initialLine="8">
             <startOffsets>
-              <option value="216" />
+              <option value="230" />
             </startOffsets>
             <endOffsets>
-              <option value="217" />
+              <option value="826" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="38" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/authInit/Startup.cs</url>
-          <line>64</line>
-          <properties documentPath="$PROJECT_DIR$/authInit/Startup.cs" initialLine="64">
-            <startOffsets>
-              <option value="1975" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2039" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="39" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/authInit/Startup.cs</url>
-          <line>67</line>
-          <properties documentPath="$PROJECT_DIR$/authInit/Startup.cs" initialLine="67">
-            <startOffsets>
-              <option value="2156" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2189" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="40" />
+          <option name="timeStamp" value="43" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

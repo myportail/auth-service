@@ -4,7 +4,6 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="Contexts" />
     <Folder Include="Contexts\" />
     <Folder Include="Settings\" />
     <Folder Include="Model\" />
@@ -61,5 +60,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Contexts\UsersDbContext.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\authlib\authlib.csproj" />
   </ItemGroup>
 </Project>

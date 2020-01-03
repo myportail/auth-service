@@ -1,7 +1,7 @@
 using AuthLib.Db.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Authlib.Contexts
+namespace authInit.Contexts
 {
     public class UserContext : DbContext
     {
