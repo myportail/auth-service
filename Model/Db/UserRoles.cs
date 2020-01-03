@@ -1,5 +1,3 @@
-using System;
-
 namespace authService.Model.Db
 {
     public sealed class UserRole
