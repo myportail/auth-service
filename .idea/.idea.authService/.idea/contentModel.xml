@@ -52,8 +52,9 @@
       </e>
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
-          <e p="netcoreapp2.2" t="Include">
+          <e p="netcoreapp3.1" t="Include">
             <e p="authService.AssemblyInfo.cs" t="Include" />
+            <e p="authService.RazorAssemblyInfo.cs" t="Include" />
           </e>
         </e>
       </e>
@@ -87,7 +88,7 @@
       </e>
       <e p="Startup.cs" t="Include" />
     </e>
-    <e p="$USER_HOME$/Library/Caches/Rider2019.1/extResources" t="IncludeRecursive" />
-    <e p="$USER_HOME$/Library/Caches/Rider2019.1/resharper-host/local/Transient/ReSharperHost/v191/SolutionCaches/_authService.157304532.00" t="ExcludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2019.3/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2019.3/resharper-host/local/Transient/ReSharperHost/v193/SolutionCaches/_authService.157304532.00" t="ExcludeRecursive" />
   </component>
 </project>

@@ -1,8 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using Microsoft.EntityFrameworkCore;
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace authService.Model.Db
 {
